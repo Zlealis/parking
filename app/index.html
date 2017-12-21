@@ -1,11 +1,15 @@
 <!doctype html>
-<html lang="en" ng-app="RDash">
+
+<!--[if lt IE 7]>      <html lang="zh-cn" ng-app="RDash" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="zh-cn" ng-app="RDash" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="zh-cn" ng-app="RDash" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="zh-cn" ng-app="RDash" class="no-js"> <!--<![endif]-->
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <link rel="icon" href="../../../../favicon.ico">
+
 
   <title>parking</title>
 
@@ -14,13 +18,31 @@
 
   <!-- Custom styles for this template -->
   <link href="css/dashboard.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/bootstrap.css">
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="js/module.js"></script>
+  <script type="text/javascript" src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+  <script src="js/routes.js"></script>
+
+  <!--<script src="js/master-ctrl.js"></script>-->
+
+  <!--<script src="js/dashboard.min.js"></script>
+   <script src="js/main.min.js"></script>-->
+
+  <!--used for file upload-->
+
+
+  <!--<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=GtbQBreby2AvEG84if8G7uQHStQ8WykU"></script>-->
 </head>
 
 <body>
 
 <header>
   <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-    <a class="navbar-brand" href="#">SJTU</a>
+    <a class="navbar-brand" href="#/">SJTU</a>
     <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -51,19 +73,16 @@
 
 <div class="container-fluid">
   <div class="row">
-
-
     <nav class="col-sm-3 col-md-2 d-none d-sm-block bg-light sidebar">
       <ul class="nav nav-pills flex-column">
         <li class="nav-item">
           <a class="nav-link active" href="#/">管理系统 <span class="sr-only">(current)</span></a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item"  ui-sref="user" >
           <a class="nav-link" href="#/user">用户管理</a>
         </li>
-
         <li class="nav-item">
-          <a class="nav-link" href="#/lot">停车厂管理</a>
+          <a class="nav-link" ui-sref="lot" href="#/lot">停车厂管理</a>
         </li>
       </ul>
 
@@ -107,7 +126,6 @@
         </div>
       </section>
  -->
-
 
       <!--<h2>Section title</h2>
       <div class="table-responsive">
@@ -237,7 +255,6 @@
           </tbody>
         </table>
       </div>-->
-
 <!--<div id="page-wrapper" ng-class="{'open': toggle}" ng-cloak>
 
   &lt;!&ndash; Sidebar &ndash;&gt;
@@ -356,36 +373,25 @@
     </div>&lt;!&ndash; End Page Content &ndash;&gt;
   </div>&lt;!&ndash; End Content Wrapper &ndash;&gt;
 </div>&lt;!&ndash; End Page Wrapper &ndash;&gt;-->
-<div ui-view></div>
+            <div ui-view></div>
 
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-<script src="../../../../assets/js/vendor/popper.min.js"></script>
-<script src="../../../../dist/js/bootstrap.min.js"></script>
-<script src="js/addlot-ctrl.js"></script>
-<script src="js/adduser-ctrl.js"></script>
-<script src="js/editlot-ctrl.js"></script>
-<script src="js/entry-ctrl.js"></script>
-<script src="js/lot-ctrl.js"></script>
-<!--<script src="js/master-ctrl.js"></script>-->
-<script src="js/module.js"></script>
-<script src="js/order-ctrl.js"></script>
-<script src="js/qrcode-ctrl.js"></script>
-<script src="js/routes.js"></script>
-<script src="js/space-ctrl.js"></script>
-<script src="js/user-ctrl.js"></script>
-     <!--<script src="js/dashboard.min.js"></script>
-      <script src="js/main.min.js"></script>-->
-<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=nhB87EF7jEp0diMOOTjHkXYyHQwGKojT"></script>
-<!--used for file upload-->
-<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+      <script src="js/addlot-ctrl.js"></script>
+      <script src="js/adduser-ctrl.js"></script>
+      <script src="js/editlot-ctrl.js"></script>
+      <script src="js/entry-ctrl.js"></script>
+      <script src="js/lot-ctrl.js"></script>
+      <script src="js/order-ctrl.js"></script>
+      <script src="js/qrcode-ctrl.js"></script>
+
+      <script src="js/space-ctrl.js"></script>
+      <script src="js/user-ctrl.js"></script>
     </main>
   </div>
 </div>
-</div>
+
 </body>
 
 </html>

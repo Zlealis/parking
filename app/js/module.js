@@ -1,4 +1,4 @@
-angular.module('RDash', ['ui.bootstrap', 'ui.router', 'ngCookies','ngBaiduMap','ngDialog', 'smart-table'])
+angular.module('RDash', ['ui.router'])
     .constant('baseUrl','http://112.74.62.114:8080/Entity/Udb7fe87147e10/SZLKD')
     .constant('baiduUrl','http://api.map.baidu.com/geocoder/v2/?callback=renderReverse&output=json&ak=nhB87EF7jEp0diMOOTjHkXYyHQwGKojT')
     .constant('bmapUrl','http://api.map.baidu.com/staticimage/v2?ak=nhB87EF7jEp0diMOOTjHkXYyHQwGKojT');
