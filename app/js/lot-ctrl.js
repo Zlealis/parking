@@ -1,6 +1,4 @@
-/**
- * Created by lulifei on 16/12/4.
- */
+
 angular.module('RDash')
     .controller('LotCtrl', ['$scope','$state', LotCtrl]);
 

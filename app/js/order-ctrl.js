@@ -1,6 +1,4 @@
-/**
- * Created by lulifei on 16/12/4.
- */
+
 angular.module('RDash')
     .controller('OrderCtrl', ['$scope', '$cookieStore', OrderCtrl]);
 
@@ -36,7 +34,7 @@ function OrderCtrl($scope) {
     });
 
 
-    $scope.changeView = function () {
+    $scope.changeView= function () {
         $scope.listshow = !$scope.listshow;
         if ($scope.listshow) {
             $scope.listMessage = '收起';

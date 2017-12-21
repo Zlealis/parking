@@ -24,7 +24,9 @@
   <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
   <script src="bower_components/angular/angular.js"></script>
   <script src="js/module.js"></script>
-  <script type="text/javascript" src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+  <script type="text/javascript" src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/qrcode.min.js"></script>
   <script src="js/routes.js"></script>
 
   <!--<script src="js/master-ctrl.js"></script>-->
@@ -81,19 +83,19 @@
         <li class="nav-item"  ui-sref="user" >
           <a class="nav-link" href="#/user">用户管理</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" ui-sref="lot" href="#/lot">停车厂管理</a>
+        <li class="nav-item" ui-sref="lot">
+          <a class="nav-link"  href="#/lot">停车厂管理</a>
         </li>
       </ul>
 
       <ul class="nav nav-pills flex-column">
 
         <li class="nav-item">
-          <a class="nav-link" href="#/order">订单管理</a>
+          <a class="nav-link" ui-sref="order" href="#/order">订单管理</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="#/qrCode">二维码</a>
+          <a class="nav-link" ui-sref="qrCode" href="#/qrCode">二维码</a>
         </li>
       </ul>
 

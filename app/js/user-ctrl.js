@@ -16,7 +16,7 @@ function UserCtrl($scope, $state) {
     //can't identify http as a function
 
     $scope.listshow = true;
-    $scope.listMessage = '收起';
+    $scope.list= '收起';
 
 
     $.ajax({
@@ -36,13 +36,13 @@ function UserCtrl($scope, $state) {
 
 
 
-    $scope.changeView = function () {
-        $scope.listshow = !$scope.listshow;
+    $scope.changeViews = function () {
+        $scope.listshow=!$scope.listshow;
         if ($scope.listshow) {
-            $scope.listMessage = '收起';
+            $scope.list= '收起';
         }
         else {
-            $scope.listMessage = '显示';
+            $scope.list= '显示';
         }
 
     };
