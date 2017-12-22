@@ -17,18 +17,14 @@
                 <table st-table="rowCollection" class="table">
                     <thead>
                     <tr>
-                        <th>
+                        <!--<th>
                             <input st-search="id" placeholder="用户ID" class="input-sm form-control" type="search"/>
-                        </th>
-                        <th>
-                            <input st-search="username" placeholder="用户名" class="input-sm form-control" type="search"/>
-                        </th>
+                        </th>-->
+
                         <th>
                             <input st-search="phone" placeholder="手机号码" class="input-sm form-control" type="search"/>
                         </th>
-                        <th>
-                            <input st-search="cartype" placeholder="车辆类型" class="input-sm form-control" type="search"/>
-                        </th>
+
                         <th>
                             <input st-search="carid" placeholder="车辆牌照" class="input-sm form-control" type="search"/>
                         </th>
@@ -52,7 +48,7 @@
                     <tbody>
                     <tr ng-repeat="row in rowCollection">
                         <!--<td>{{row.id}}</td>-->
-                      
+
                         <td>{{row.phonenum}}</td>
 
                         <td>{{row.carid}}</td>

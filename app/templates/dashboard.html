@@ -74,24 +74,24 @@
 					<table st-table="rowCollection" class="table">
 						<thead>
 						<tr>
-							<th st-sort = "id">用户ID</th>
-							<th st-sort = "username">用户名</th>
+							<!--<th st-sort = "id">用户ID</th>-->
+
 							<th st-sort =  "phone">手机号码</th>
-							<th st-sort = "cartype">车辆类型</th>
+
 							<th st-sort = "carid">车辆牌照</th>
-							<th st-sort = "moeny">账户余额</th>
+							<th st-sort = "state">账户余额</th>
 						</tr>
 
 						<!--<tr><th class="text-center">ID</th><th>Username</th><th>Role</th><th>Account</th></tr>-->
 						</thead>
 						<tbody>
 						<tr ng-repeat="row in rowCollection">
-							<td>{{row.id}}</td>
-							<td>{{row.username}}</td>
-							<td>{{row.phone}}</td>
-							<td>{{row.cartype}}</td>
+							<!--<td>{{row.id}}</td>-->
+
+							<td>{{row.phonenum}}</td>
+
 							<td>{{row.carid}}</td>
-							<td>{{row.money | currency}}</td>
+							<td>{{row.state | currency}}</td>
 						</tr>
 						</tbody>
 					</table>
