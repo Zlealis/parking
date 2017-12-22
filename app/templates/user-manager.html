@@ -37,12 +37,12 @@
                         </th>
                     </tr>
                     <tr>
-                        <th style="width: 15%" st-sort="id">用户ID</th>
-                        <th style="width: 15%" st-sort="username">用户名</th>
+                        <!--<th style="width: 15%" st-sort="id">用户ID</th>-->
+
                         <th style="width: 15%" st-sort="phone">手机号码</th>
-                        <th style="width: 15%" st-sort="cartype">车辆类型</th>
+
                         <th style="width: 15%" st-sort="carid">车辆牌照</th>
-                        <th style="width: 15%" st-sort="moeny">账户余额</th>
+                        <th style="width: 15%" st-sort="state">账户余额</th>
 
                         <!--<th>编辑</th>-->
                         <th style="width: 5%">删除</th>
@@ -51,12 +51,12 @@
                     </thead>
                     <tbody>
                     <tr ng-repeat="row in rowCollection">
-                        <td>{{row.id}}</td>
-                        <td>{{row.username}}</td>
-                        <td>{{row.phone}}</td>
-                        <td>{{row.cartype}}</td>
+                        <!--<td>{{row.id}}</td>-->
+                      
+                        <td>{{row.phonenum}}</td>
+
                         <td>{{row.carid}}</td>
-                        <td>{{row.money | currency}}</td>
+                        <td>{{row.state | currency}}</td>
                         <!--<td><img src="../img/edit.png" ng-click="editUser(row)" style="height:8%"></td>-->
                         <td><span tooltip="删除用户!" class="text-danger" ng-click="deleteUser(row)"><i
                                 class="fa fa-warning"></i></span></td>
@@ -74,10 +74,10 @@
             </rd-widget-header>
             <div class="table-responsive" ng-controller="UserCtrl">
                 <p>请输入以下信息</p>
-                用 &nbsp;户 &nbsp;名 &nbsp;<input type="text" data-ng-model="create.username" placeholder="请输入用户名">
-                手 &nbsp;机 &nbsp;号 &nbsp;<input type="text" data-ng-model="create.phone" placeholder="请输入手机号">
+
+                手 &nbsp;机 &nbsp;号 &nbsp;<input type="text" data-ng-model="create.phonenum" placeholder="请输入手机号">
                 用户密码 &nbsp;<input type="password" data-ng-model="create.password" placeholder="请输入密码"><br><br>
-                汽车型号 &nbsp;<input type="text" data-ng-model="create.cartype" placeholder="请输入汽车型号">
+
                 汽车牌照 &nbsp;<input type="text" data-ng-model="create.carid" placeholder="请输入牌照"><br><br>
                 <button class="btn btn-sm btn-info" style="margin-left: 24%;width:24%" ng-click="createUser()">创建
                 </button>
