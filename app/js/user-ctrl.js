@@ -1,6 +1,4 @@
-/**
- * Created by lulifei on 16/12/4.
- */
+
 
 angular.module('RDash')
     .controller('UserCtrl', ['$scope','$state', UserCtrl]);
@@ -12,8 +10,7 @@ function UserCtrl($scope, $state) {
     $scope.closeAlert = function() {
        $scope.showAlert = false;
     };
-    // var baseUrl = 'http://112.74.62.114:8080/Entity/Udb7fe87147e10/SZLKD';
-    //can't identify http as a function
+
 
     $scope.listshow = true;
     $scope.list= '收起';
@@ -55,7 +52,7 @@ function UserCtrl($scope, $state) {
             console.log('delete');
 
             $.ajax({
-                url: 'http://120.77.42.242:8080/Entity/Ufaf878cb8ec3/ParkingLot/Users' + row.id,
+                url: 'http://120.77.42.242:8080/Entity/Ufaf878cb8ec3/ParkingLot/Users' +row.id,
                 method: 'DELETE',
                 async: false,
                 success: function (data) {
@@ -82,8 +79,7 @@ function UserCtrl($scope, $state) {
     $scope.search = function () {
         // alert(baseUrl);
         $.ajax({
-            // url: baseUrl +'/User/',
-            url: 'http://120.77.42.242:8080/Entity/Ufaf878cb8ec3/ParkingLot/Users/',
+            url: 'http://120.77.42.242:8080/Entity/Ufaf878cb8ec3/ParkingLot/Users',
             method: 'GET',
             async: false,
             success: function (data) {
