@@ -25,8 +25,8 @@ function UserCtrl($scope, $state) {
         method: 'GET',
         async: false,
         success: function (data) {
-            if (data.User) {
-                $scope.rowCollection = data.User;
+            if (data.Users) {
+                $scope.rowCollection = data.Users;
                 $scope.usernum =  $scope.rowCollection.length;
                 console.log($scope.rowCollection);
                 // alert('success!');
@@ -51,7 +51,7 @@ function UserCtrl($scope, $state) {
     $scope.deleteUser = function (row) {
 
         var r = confirm("确认删除？");
-        if (r == true) {
+        if (r === true) {
             console.log('delete');
 
             $.ajax({
@@ -87,8 +87,8 @@ function UserCtrl($scope, $state) {
             method: 'GET',
             async: false,
             success: function (data) {
-                    if (data.User) {
-                        $scope.rowCollection = data.User;
+                    if (data.Users) {
+                        $scope.rowCollection = data.Users;
                         console.log($scope.rowCollection);
                         alert('success!');
                 }
