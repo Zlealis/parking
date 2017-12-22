@@ -8,18 +8,18 @@ function LotCtrl($scope,$state) {
 
     $scope.listshow = true;
     $scope.listMessage = '收起';
-
+    alert("suc");
     $.ajax({
         // url: baseUrl +'/User/',
-        url: 'http://112.74.62.114:8080/Entity/Udb7fe87147e10/SZLKD/Parklot/',
+        url: 'http://120.77.42.242:8080/Entity/Ufaf878cb8ec3/ParkingLot/Park',
         method: 'GET',
         async: false,
         success: function (data) {
-            if (data.Parklot) {
-                $scope.rowCollection = data.Parklot;
+            if (data.Park) {
+                $scope.rowCollection = data.Park;
                 $scope.lotnum = $scope.rowCollection.length;
                 console.log($scope.rowCollection);
-                // alert('success!');
+                 alert('success!');
             }
         }
     });
@@ -64,12 +64,13 @@ function LotCtrl($scope,$state) {
         // alert(baseUrl);
         $.ajax({
             // url: baseUrl +'/User/',
-            url: 'http://112.74.62.114:8080/Entity/Udb7fe87147e10/SZLKD/Parklot/',
+            url: 'http://120.77.42.242:8080/Entity/Ufaf878cb8ec3/ParkingLot/Park',
             method: 'GET',
             async: false,
             success: function (data) {
-                if (data.Parklot) {
-                    $scope.rowCollection = data.Parklot;
+                if (data.Park) {
+
+                    $scope.rowCollection = data.Park;
                     console.log($scope.rowCollection);
                     alert('success!');
                 }
@@ -85,7 +86,7 @@ function LotCtrl($scope,$state) {
             console.log('delete');
 
             $.ajax({
-                url: 'http://112.74.62.114:8080/Entity/Udb7fe87147e10/SZLKD/Parklot/' + row.id,
+                url: 'http://120.77.42.242:8080/Entity/Ufaf878cb8ec3/ParkingLot' + row.id,
                 method: 'DELETE',
                 async: false,
                 success: function (data) {

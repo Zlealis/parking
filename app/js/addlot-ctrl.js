@@ -32,7 +32,7 @@ function AddLotCtrl($scope, $state) {
         else {
             $.ajax({
                 // url: baseUrl +'/User/',
-                url: 'http://112.74.62.114:8080/Entity/Udb7fe87147e10/SZLKD/Parklot/',
+                url: 'http://120.77.42.242:8080/Entity/Udb7fe87147e10/Parklot/',
                 method: 'POST',
                 // data: data,
                 data: JSON.stringify(data),
@@ -48,7 +48,7 @@ function AddLotCtrl($scope, $state) {
                 }
             }).done(function (data) {
 
-                var url = "http://112.74.62.114:8080/Entity/Udb7fe87147e10/SZLKD/Parklot/" + data.id;
+                var url = "http://120.77.42.242:8080/Entity/Udb7fe87147e10/Parklot/" + data.id;
                 console.log(url);
                 var files = $(":file")[0].files;
                 var formData = new FormData();
