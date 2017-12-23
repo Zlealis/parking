@@ -6,24 +6,24 @@ function OrderCtrl($scope) {
     $scope.listshow = true;
     $scope.listMessage = '收起';
     $.ajax({
-        // url: baseUrl +'/User/',
-        url: 'http://112.74.62.114:8080/Entity/Udb7fe87147e10/SZLKD/Parkrecord/',
+
+        url: 'http://120.77.42.242:8080/Entity/Ufaf878cb8ec3/ParkingLot/Parkorder',
         method: 'GET',
         async: false,
         success: function (data) {
-            if (data.Parkrecord) {
-                $scope.rowCollection = data.Parkrecord;
+            if (data.Parkorder) {
+                $scope.rowCollection = data.Parkorder;
                 $scope.ordernum = $scope.rowCollection.length;
                 console.log($scope.rowCollection);
                 if($scope.rowCollection){
                     $scope.rowCollection.forEach(function(row){
                         // $scope.userid = list
-                        row.entertime = parseDate(new Date(Date.parse(row.entertime)));
-                        if(row.leavetime == null){
-                            row.leavetime = "尚未离开";
+                        row.start = parseDate(new Date(Date.parse(row.start)));
+                        if(row.leave == null){
+                            row.leave = "尚未离开";
                         }
                         else{
-                            row.leavetime = parseDate(new Date(Date.parse(row.leavetime)));
+                            row.leave = parseDate(new Date(Date.parse(row.leave)));
                         }
 
                     })
@@ -34,7 +34,7 @@ function OrderCtrl($scope) {
     });
 
 
-    $scope.changeView= function () {
+   /* $scope.changeView= function () {
         $scope.listshow = !$scope.listshow;
         if ($scope.listshow) {
             $scope.listMessage = '收起';
@@ -43,29 +43,29 @@ function OrderCtrl($scope) {
             $scope.listMessage = '显示';
         }
 
-    };
+    };*/
 
 
     $scope.search = function () {
         // alert(baseUrl);
         $.ajax({
             // url: baseUrl +'/User/',
-            url: 'http://112.74.62.114:8080/Entity/Udb7fe87147e10/SZLKD/Parkrecord/',
+            url: 'http://120.77.42.242:8080/Entity/Ufaf878cb8ec3/ParkingLot/Parkorder',
             method: 'GET',
             async: false,
             success: function (data) {
-                if (data.Parkrecord) {
-                    $scope.rowCollection = data.Parkrecord;
+                if (data.Parkorder) {
+                    $scope.rowCollection = data.Parkorder;
                     console.log($scope.rowCollection);
                     if($scope.rowCollection){
                         $scope.rowCollection.forEach(function(row){
                             // $scope.userid = list
-                            row.entertime = parseDate(new Date(Date.parse(row.entertime)));
-                            if(row.leavetime == null){
-                                row.leavetime = "尚未离开";
+                            row.start = parseDate(new Date(Date.parse(row.start)));
+                            if(row.leave == null){
+                                row.leave = "尚未离开";
                             }
                             else{
-                                row.leavetime = parseDate(new Date(Date.parse(row.leavetime)));
+                                row.leave = parseDate(new Date(Date.parse(row.leave)));
                             }
                         })
                     }
@@ -82,7 +82,7 @@ function OrderCtrl($scope) {
             var   hour = d.getHours();
             var   minute = d.getMinutes();
             var   second = d.getSeconds();
-            return   "2016-"+ month+"-"+ date + "   "+ hour+ ":" + minute+ ":" + second;
+            return   "2017-"+ month+"-"+ date + "   "+ hour+ ":" + minute+ ":" + second;
 
     }
 
