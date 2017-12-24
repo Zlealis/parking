@@ -2,11 +2,11 @@
     <uib-alert  type="success" >订单管理：包括订单的查看</uib-alert>
 </div>
 <div class="row">
-    <div class="col-lg-12">
+    <div class="col-lg-12" ng-controller="OrderCtrl">
         <rd-widget>
             <rd-widget-header icon="fa-tasks" title="订单查询">
-                <button class="btn btn-sm btn-info" style="width: 25%;margin-left: 0%" ng-click="search()">查询</button>
-                <button class="btn btn-sm btn-info" style="width: 25%;margin-left: 40%;background-color: transparent;border-color: #d9edf7;color: black;" ng-click="changeView()">{{listMessage}}</button>
+                <button class="btn btn-sm btn-info" style="width: 25%;margin-left: 30%" ng-click="search()">查询</button>
+                <!--<button class="btn btn-sm btn-info" style="width: 25%;margin-left: 40%;background-color: transparent;border-color: #d9edf7;color: black;" ng-click="changeView()">{{listMessage}}</button>-->
             </rd-widget-header>
             <!--<rd-widget-body classes="medium no-padding">-->
                 <div class="table-responsive" ng-show="listshow">
@@ -17,13 +17,13 @@
                                 <input st-search="id" placeholder="订单ID" class="input-sm form-control" type="search"/>
                             </th>
                             <th >
-                                <input st-search="userid" placeholder="用户ID" class="input-sm form-control" type="search"/>
+                                <input st-search="phonenum" placeholder="手机号码" class="input-sm form-control" type="search"/>
                             </th>
                             <th >
-                                <input st-search="parkid" placeholder="停车场序号" class="input-sm form-control" type="search"/>
+                                <input st-search="lotid" placeholder="停车场序号" class="input-sm form-control" type="search"/>
                             </th>
                             <th >
-                                <input st-search="parkspaceid" placeholder="停车位序号" class="input-sm form-control" type="search"/>
+                                <input st-search="spaceid" placeholder="停车位序号" class="input-sm form-control" type="search"/>
                             </th>
                             <th >
                                 <input st-search="isleave" placeholder="是否离开" class="input-sm form-control" type="search"/>
@@ -35,12 +35,12 @@
                         </tr>
                         <tr>
                             <th st-sort = "id">订单号</th>
-                            <th st-sort = "userid">用户ID</th>
-                            <th st-sort = "parkid">停车场号</th>
-                            <th st-sort = "parkspaceid">停车位号</th>
-                            <th st-sort = "entertime">停入时间</th>
+                            <th st-sort = "phonenum">手机号码</th>
+                            <th st-sort = "lotid">停车场号</th>
+                            <th st-sort = "spaceid">停车位号</th>
+                            <th st-sort = "start">停入时间</th>
                             <!--<th st-sort = "isleave">是否离开</th>-->
-                            <th st-sort = "leavetime">离开时间</th>
+                            <th st-sort = "leave">离开时间</th>
                             <th st-sort = "charge">收费</th>
                         </tr>
                         </thead>
@@ -48,13 +48,13 @@
 
                         <tr ng-repeat="row in rowCollection">
                             <td style="width: 12%">{{row.id}}</td>
-                            <td style="width: 12%">{{row.userid}}</td>
-                            <td style="width: 12%">{{row.parkid}}</td>
-                            <td style="width: 12%">{{row.parkspaceid}}</td>
-                            <td style="width: 15%">{{row.entertime}}</td>
+                            <td style="width: 12%">{{row.phonenum}}</td>
+                            <td style="width: 12%">{{row.lotid}}</td>
+                            <td style="width: 12%">{{row.spaceid}}</td>
+                            <td style="width: 15%">{{row.start}}</td>
                             <!--<td data-ng-model="parseDate(new Date(Date.parse(row.entertime)))"></td>-->
                             <!--<td>{{row.isleave}}</td>-->
-                            <td style="width: 15%">{{row.leavetime}}</td>
+                            <td style="width: 15%">{{row.leave}}</td>
                             <td style="width: 5%">{{row.charge}}</td>
                         </tr>
                         </tbody>
