@@ -2,7 +2,7 @@
     <uib-alert  type="success" >订单管理：包括订单的查看</uib-alert>
 </div>
 <div class="row">
-    <div class="col-lg-12" ng-controller="OrderCtrl">
+    <div class="col-lg-12" >
         <rd-widget>
             <rd-widget-header icon="fa-tasks" title="订单查询">
                 <button class="btn btn-sm btn-info" style="width: 25%;margin-left: 30%" ng-click="search()">查询</button>
@@ -25,16 +25,16 @@
                             <th >
                                 <input st-search="spaceid" placeholder="停车位序号" class="input-sm form-control" type="search"/>
                             </th>
-                            <th >
+                            <!--<th >
                                 <input st-search="isleave" placeholder="是否离开" class="input-sm form-control" type="search"/>
-                            </th>
+                            </th>-->
                             <th colspan="2">
                                 <input st-search placeholder="全局搜索" class="input-sm form-control" type="search"/>
                             </th>
 
                         </tr>
                         <tr>
-                            <th st-sort = "id">订单号</th>
+                            <th st-sort = "id">订单ID</th>
                             <th st-sort = "phonenum">手机号码</th>
                             <th st-sort = "lotid">停车场号</th>
                             <th st-sort = "spaceid">停车位号</th>

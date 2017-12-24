@@ -35,7 +35,6 @@
     "angular": "^1.6.7",
     "angular-smart-table": "^2.1.11",
     "angular-ui-bootstrap": "^2.5.6",
-    "angular-ui-router": "^1.0.3",
-    "angular-cookies": "^1.6.7"
+    "angular-ui-router": "^1.0.3"
   }
 }
