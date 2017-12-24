@@ -52,7 +52,7 @@ function UserCtrl($scope, $state) {
             console.log('delete');
 
             $.ajax({
-                url: 'http://120.77.42.242:8080/Entity/Ufaf878cb8ec3/ParkingLot/Users' +row.id,
+                url: 'http://120.77.42.242:8080/Entity/Ufaf878cb8ec3/ParkingLot/Users/' +row.id,
                 method: 'DELETE',
                 async: false,
                 success: function (data) {

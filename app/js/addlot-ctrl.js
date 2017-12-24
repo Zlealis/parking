@@ -6,33 +6,37 @@ angular.module('RDash')
 
 
 function AddLotCtrl($scope, $state) {
+    $scope.newlot={};
+    //@todo 不知道为什么经纬度不能直接绑定在框框里
     myMap();
-
+    console.log($scope);
     $scope.create = function(){
         console.log('创建停车场：经度'+$scope.longi +',纬度'+$scope.lat);
         var data= {
-            "longitude":$scope.longi,
-            "latitude": $scope.lat,
+            //"longitude":$scope.longi,
+            //"latitude": $scope.lat,
 
             // "longitude": parseFloat($scope.newlot.longitude),
             // "latitude": parseFloat($scope.newlot.latitude),
             "address": $scope.newlot.address,
             "name": $scope.newlot.name,
-            "spacenum": parseInt($scope.newlot.spacenum),
-            "hourcharge": parseInt($scope.newlot.hourcharge),
-            "xpos": parseInt($scope.newlot.xpos),
-            "ypos": parseInt($scope.newlot.ypos),
-            "intro": $scope.newlot.intro
+            "price": parseInt($scope.newlot.price),
+
+            "total": parseInt($scope.newlot.total),
+            "left": parseInt($scope.newlot.total),
+            "lon": $scope.newlot.lon,
+            "lat": $scope.newlot.lat,
+            "decrip": $scope.newlot.decrip
         };
         console.log(data);
-        if(!data.longitude || !data.latitude || !data.address || !data.name ||
-            !data.spacenum || !data.hourcharge ||!data.xpos ||! data.ypos ||!data.intro){
+        if( !data.address || !data.name ||
+            !data.price || !data.total ||!data.lon ||! data.lat ||!data.decrip){
             alert('关键信息不能为空！');
         }
         else {
             $.ajax({
                 // url: baseUrl +'/User/',
-                url: 'http://120.77.42.242:8080/Entity/Udb7fe87147e10/Parklot/',
+                url: 'http://120.77.42.242:8080/Entity/Ufaf878cb8ec3/ParkingLot/Park',
                 method: 'POST',
                 // data: data,
                 data: JSON.stringify(data),
@@ -43,7 +47,6 @@ function AddLotCtrl($scope, $state) {
                     if (data) {
                         console.log(data);
                         alert('success!' + data.id);
-
                     }
                 }
             }).done(function (data) {
@@ -64,9 +67,6 @@ function AddLotCtrl($scope, $state) {
                         alert('success!');
                         console.log(data);
                         $state.go('lot');
-                        // $state.go('lot',{});
-                        // window.location.href('park-lot.html');
-                        // $location.url('/lot');
                     }
                 })
             });
@@ -88,11 +88,15 @@ function AddLotCtrl($scope, $state) {
         //单击获取点击的经纬度，并在图上添加标注
         map.addEventListener("click",function(e){
             alert( e.point.lng + ",纬度" + e.point.lat);
+            alert( e.point.lng + ",纬度" + e.point.lat);
             // longi = e.point.lng;lat = e.point.lat;
             console.log('选中位置：经度'+e.point.lng +',纬度'+e.point.lat);
             $scope.longi = e.point.lng;
             $scope.lat = e.point.lat;
+           $scope.newlot.lon =e.point.lng;
+           $scope.newlot.lat= e.point.lat;
             console.log('赋值后：经度'+$scope.longi +',纬度'+$scope.lat);
+            //alert('$scope.newlot.lon'+$scope.newlot.lon +'$scope.newlot.lat'+$scope.newlot.lat);
             add_point(e.point.lng,e.point.lat);
         });
 

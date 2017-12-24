@@ -5,10 +5,9 @@ angular.module('RDash')
 function LotCtrl($scope,$state) {
     // $scope.listshow = false;
     // $scope.listMessage = '显示';
-
+    //@todo 修改所有的显示界面
     $scope.listshow = true;
     $scope.listMessage = '收起';
-    alert("suc");
     $.ajax({
         // url: baseUrl +'/User/',
         url: 'http://120.77.42.242:8080/Entity/Ufaf878cb8ec3/ParkingLot/Park',
@@ -19,7 +18,7 @@ function LotCtrl($scope,$state) {
                 $scope.rowCollection = data.Park;
                 $scope.lotnum = $scope.rowCollection.length;
                 console.log($scope.rowCollection);
-                 alert('success!');
+                 alert('初次加载!');
             }
         }
     });
@@ -41,15 +40,15 @@ function LotCtrl($scope,$state) {
     }
 
 
-    $scope.lotCode = function (row) {
-        console.log(row.id);
-        $state.go('qrCode',{id:row.id});
-    }
-
-    $scope.createEntry = function (row) {
-        console.log(row.id);
-        $state.go('entry',{id:row.id});
-    }
+    // $scope.lotCode = function (row) {
+    //     console.log(row.id);
+    //     $state.go('qrCode',{id:row.id});
+    // }
+    //
+    // $scope.createEntry = function (row) {
+    //     console.log(row.id);
+    //     $state.go('entry',{id:row.id});
+    // }
 
 
     $scope.manage = function(row){
@@ -86,7 +85,7 @@ function LotCtrl($scope,$state) {
             console.log('delete');
 
             $.ajax({
-                url: 'http://120.77.42.242:8080/Entity/Ufaf878cb8ec3/ParkingLot' + row.id,
+                url: 'http://120.77.42.242:8080/Entity/Ufaf878cb8ec3/ParkingLot/Park/' + row.id,
                 method: 'DELETE',
                 async: false,
                 success: function (data) {

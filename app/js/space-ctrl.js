@@ -15,7 +15,7 @@ function SpaceCtrl($scope,$state,$stateParams) {
     $scope.listshow = true;
     $scope.listMessage = '收起';
     // alert(baseUrl);
-    if($scope.parkid != 0)
+    if($scope.parkid !== 0)
     {
         $.ajax({
             // url: baseUrl +'/User/',
