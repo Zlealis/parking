@@ -18,8 +18,8 @@ function LotCtrl($scope,$state) {
                 $scope.rowCollection = data.Park;
                 $scope.lotnum = $scope.rowCollection.length;
                 console.log($scope.rowCollection);
-                alert('初次加载!');
-            }
+
+        }
         }
     });
 
@@ -88,7 +88,7 @@ function LotCtrl($scope,$state) {
                 method: 'DELETE',
                 async: false,
                 success: function (data) {
-                    alert(' delete success');
+                    alert('delete success');
                     if (data.message) {
                         console.log(data);
                         alert('success!');

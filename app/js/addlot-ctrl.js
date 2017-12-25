@@ -81,13 +81,12 @@ function AddLotCtrl($scope, $state) {
                     }
                 }
             }).done(function (data) {
-
-                var url = "http://120.77.42.242:8080/Entity/Udb7fe87147e10/Parklot/" + data.id;
+                var url = "http://120.77.42.242:8080/Entity/Ufaf878cb8ec3/ParkingLot/Park/" + data.id;
                 console.log(url);
                 var files = $(":file")[0].files;
                 var formData = new FormData();
                 formData.append("file", files[0]);
-
+                console.log("1");
                 $.ajax({
                     url: url,
                     type: "POST",
@@ -119,7 +118,7 @@ function AddLotCtrl($scope, $state) {
         //单击获取点击的经纬度，并在图上添加标注
         map.addEventListener("click",function(e){
             alert( e.point.lng + ",纬度" + e.point.lat);
-            alert( e.point.lng + ",纬度" + e.point.lat);
+
             // longi = e.point.lng;lat = e.point.lat;
             console.log('选中位置：经度'+e.point.lng +',纬度'+e.point.lat);
             $scope.longi = e.point.lng;

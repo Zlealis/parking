@@ -21,7 +21,7 @@ function EditLotCtrl($scope,$state,$stateParams) {
                 console.log('success!');
             }
         });
-        $scope.imgsrc="http://120.77.42.242:8080/file/Ufaf878cb8ec3/ParkingLot/Park/"+$scope.myid;
+        $scope.imgsrc='http://120.77.42.242:8080/file/Ufaf878cb8ec3/ParkingLot/Park/'+ $scope.myid;
         if($scope.editLot.total!==$scope.editLot.left){
             alert("还有车在，不能修改停车场信息");
             state.go('lot');
@@ -34,7 +34,7 @@ function EditLotCtrl($scope,$state,$stateParams) {
 
 
     $scope.save = function() {
-        if (!$scope.editLot.name || !$scope.editLot.total || !$scope.editLot.price
+        if (!$scope.editLot.name  || !$scope.editLot.price
             ||!$scope.editLot.pbase||!$scope.editLot.decrip) {
             alert('关键信息不能为空！');
         }
