@@ -35,7 +35,7 @@ angular.module('RDash').config(['$stateProvider', '$urlRouterProvider',
                 url: '/space',
                 controller: 'SpaceCtrl',
                 templateUrl: 'templates/park-space.html',
-                params: {'id':0,'num':0,'x':0,'y':0},
+                params: {'id':0},
                 cache:false //每次回到这个页面时自动强制刷新
             })
             .state('order',{
@@ -76,7 +76,7 @@ angular.module('RDash').config(['$stateProvider', '$urlRouterProvider',
             .state('addUser',{
                 url: '/addUser',
                 controller: 'AddUserCtrl',
-                templateUrl: 'templates/adduser.html',
-        });
+                templateUrl: 'templates/adduser.html'
+            });
     }
 ]);

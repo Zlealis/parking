@@ -1,36 +1,67 @@
-/**
- * Created by lulifei on 16/12/7.
- */
+
 angular.module('RDash')
     .controller('AddLotCtrl' , ['$scope','$state',AddLotCtrl]);
 
 
 function AddLotCtrl($scope, $state) {
     $scope.newlot={};
-    //@todo 不知道为什么经纬度不能直接绑定在框框里
     myMap();
+
+
     console.log($scope);
     $scope.create = function(){
         console.log('创建停车场：经度'+$scope.longi +',纬度'+$scope.lat);
+
+
+        var s="";
+        var temp;
+        var count=0;
+        var pbase;
+
+        s=$scope.newlot.pbase.split('+');
+
+        for (var i=0; i<s.length;i++){
+            temp=parseInt(s[i],2);
+            countTotal(temp);
+            if(i==0){
+                pbase=temp.toString(16);
+            }else {
+                pbase=pbase+"+"+temp.toString(16);
+            }
+        }
+        console.log("3");
+        function countTotal(n) {
+            n=(n&0X55555555)+((n>>1)&0x55555555);
+            n=(n&0X33333333)+((n>>2)&0x33333333);
+            n=(n&0X0f0f0f0f)+((n>>4)&0x0f0f0f0f);
+            n=(n&0X00ff00ff)+((n>>8)&0x00ff00ff);
+            n=(n&0X0000ffff)+((n>>16)&0x0000ffff);
+            count+=n;
+        }
+
+        $scope.newlot.total=count;
+
         var data= {
             //"longitude":$scope.longi,
             //"latitude": $scope.lat,
-
             // "longitude": parseFloat($scope.newlot.longitude),
             // "latitude": parseFloat($scope.newlot.latitude),
             "address": $scope.newlot.address,
             "name": $scope.newlot.name,
             "price": parseInt($scope.newlot.price),
-
-            "total": parseInt($scope.newlot.total),
-            "left": parseInt($scope.newlot.total),
+            "total": parseInt(count),
+            "left": parseInt(count),
+            "pbase": pbase,
+            "pstate": pbase,
             "lon": $scope.newlot.lon,
             "lat": $scope.newlot.lat,
             "decrip": $scope.newlot.decrip
         };
+
+
+
         console.log(data);
-        if( !data.address || !data.name ||
-            !data.price || !data.total ||!data.lon ||! data.lat ||!data.decrip){
+        if( !data.address || !data.name ||!data.price || !data.total ||!data.lon ||! data.lat ||!data.decrip){
             alert('关键信息不能为空！');
         }
         else {
@@ -93,8 +124,8 @@ function AddLotCtrl($scope, $state) {
             console.log('选中位置：经度'+e.point.lng +',纬度'+e.point.lat);
             $scope.longi = e.point.lng;
             $scope.lat = e.point.lat;
-           $scope.newlot.lon =e.point.lng;
-           $scope.newlot.lat= e.point.lat;
+            $scope.newlot.lon =e.point.lng;
+            $scope.newlot.lat= e.point.lat;
             console.log('赋值后：经度'+$scope.longi +',纬度'+$scope.lat);
             //alert('$scope.newlot.lon'+$scope.newlot.lon +'$scope.newlot.lat'+$scope.newlot.lat);
             add_point(e.point.lng,e.point.lat);

@@ -5,7 +5,7 @@ angular.module('RDash')
 function LotCtrl($scope,$state) {
     // $scope.listshow = false;
     // $scope.listMessage = '显示';
-    //@todo 修改所有的显示界面
+
     $scope.listshow = true;
     $scope.listMessage = '收起';
     $.ajax({
@@ -18,7 +18,7 @@ function LotCtrl($scope,$state) {
                 $scope.rowCollection = data.Park;
                 $scope.lotnum = $scope.rowCollection.length;
                 console.log($scope.rowCollection);
-                 alert('初次加载!');
+                alert('初次加载!');
             }
         }
     });
@@ -52,8 +52,7 @@ function LotCtrl($scope,$state) {
 
 
     $scope.manage = function(row){
-        console.log(row.id+','+row.spacenum+','+row.xpos+ ','+row.ypos);
-        $state.go('space',{id:row.id,num:row.spacenum,x:row.xpos,y:row.ypos});
+        $state.go('space',{id:row.id});
     };
 
 

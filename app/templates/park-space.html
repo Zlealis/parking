@@ -45,16 +45,17 @@
                         <tbody>
                         <tr ng-repeat="row in rowCollection">
                             <!--<td>{{row.isfull}}</td>-->
-                            <td >{{row.parkid}}</td>
-                            <td >{{row.id}}</td>
+                            <td >{{parkid}}</td>
+                            <td >{{id}}</td>
                             <td >{{row.xpos}}</td>
                             <td >{{row.ypos}}</td>
                             <td >{{{true: "有车", false:"空闲"}[row.isfull == 1]}}</td>
 
-                            <td><img src="../img/see.png" ng-click="seeCar(row)" style="height:15%;margin-left: 14%"></td>
-                            <td><img src="../img/qrcode.jpg" ng-click="spaceqrCode(row)" style="height:5%;margin-left: 30%"></td>
+                            <!--<td><img src="../img/see.png" ng-click="seeCar(row)" style="height:15%;margin-left: 14%"></td>-->
+                            <!--<td><img src="../img/qrcode.jpg" ng-click="spaceqrCode(row)" style="height:5%;margin-left: 30%"></td>-->
                             <!--<td><button ng-click="seeCar(row)"></button></td>-->
                             <!--<td><button ng-click="spaceqrCode(row)"></button></td>-->
+                            <td><button ng-click="changeState(row.xpos,row.y)"></button></td>
                         </tr>
                         </tbody>
                     </table>
@@ -64,14 +65,14 @@
     </div>
 
 
-    <div class="col-lg-12">
-    <rd-widget>
-        <rd-widget-header icon="fa-plus" title="停车位新增">
-            <a style="margin-left: -17%" ng-click="createSpace()">一键创建停车位</a>
-            <!--<button class="btn btn-sm btn-info" ng-click="">添加</button>-->
-        </rd-widget-header>
-    </rd-widget>
-    </div>
-</div>
-</div>
+    <!--<div class="col-lg-12">-->
+    <!--<rd-widget>-->
+        <!--<rd-widget-header icon="fa-plus" title="停车位新增">-->
+            <!--<a style="margin-left: -17%" ng-click="createSpace()">一键创建停车位</a>-->
+            <!--&lt;!&ndash;<button class="btn btn-sm btn-info" ng-click="">添加</button>&ndash;&gt;-->
+        <!--</rd-widget-header>-->
+    <!--</rd-widget>-->
+    <!--</div>-->
+<!--</div>-->
+<!--</div>-->
 
