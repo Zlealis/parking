@@ -31,15 +31,8 @@
                                 <th st-sort = "name">名称</th>
                                 <th st-sort = "address">地址</th>
                                 <th st-sort = "price">收费</th>
-                                <!--<th st-sort = "longitude">经度</th>-->
-                                <!--<th st-sort = "latitude">纬度</th>-->
                                 <th st-sort = "left">停车位个数</th>
-                                <!--<th st-sort = "xpos">停车位行数</th>-->
-                                <!--<th st-sort =  "ypos">停车位列数</th>-->
-
-                                <!--<th>入口管理</th>-->
                                 <th>停车位管理</th>
-                                <!--<th>生成二维码</th>-->
                                 <th>编辑</th>
                                 <th>删除</th>
                             </tr>
@@ -51,23 +44,11 @@
                                 <td>{{row.name}}</td>
                                 <td>{{row.address}}</td>
                                 <td>{{row.price}}元/小时</td>
-                                <!--<td>{{row.longitude}}</td>-->
-                                <!--<td>{{row.latitude}}</td>-->
                                 <td>{{row.left}}</td>
-                                <!--<td>{{row.xpos}}</td>-->
-                                <!--<td>{{row.ypos}}</td>-->
-
-                                <!--<td><img src="../img/entry.png" ng-click="createEntry(row)" style="height:10%;margin-left: 25%"></td>-->
-                                <!--<td> <button ng-click="createEntry(row)"></button></td>-->
-
-                                <!--<td><img src="../img/space.jpeg" ng-click="manage(row)" style="height:13%;margin-left: 20%"></td>-->
                                 <td><button ng-click="manage(row)">管理</button> </td>
-                                <!--<td><button ng-click="lotCode(row)"></button></td>-->
-                                <!--<td><img src="../img/qrcode.jpg" ng-click="lotCode(row)" style="height:5%;margin-left: 30%"></td>-->
-                                <!--<td><img src="../img/edit.png" ng-click="editLot(row)" style="height:8%"></td>-->
                                 <td><button ng-click="editLot(row)">编辑</button></td>
                                 <td><button ng-click="deleteLot(row)">删除</button></td>
-                                <!--<td><span tooltip="删除停车场!" class="text-danger" style="font-size: 120%" ng-click="deleteLot(row)"><i class="fa fa-warning"></i></span></td>-->
+
 
                             </tr>
                             </tbody>

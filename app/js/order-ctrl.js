@@ -1,6 +1,6 @@
 
 angular.module('RDash')
-    .controller('OrderCtrl', ['$scope', '$cookieStore', OrderCtrl]);
+    .controller('OrderCtrl', ['$scope', OrderCtrl]);
 
 function OrderCtrl($scope) {
     $scope.listshow = true;
@@ -15,7 +15,7 @@ function OrderCtrl($scope) {
                 $scope.rowCollection = data.Parkorder;
                 $scope.ordernum = $scope.rowCollection.length;
                 console.log($scope.rowCollection);
-                if($scope.rowCollection){
+                /*if($scope.rowCollection){
                     $scope.rowCollection.forEach(function(row){
                         // $scope.userid = list
                         row.start = parseDate(new Date(Date.parse(row.start)));
@@ -27,7 +27,7 @@ function OrderCtrl($scope) {
                         }
 
                     })
-                }
+                }*/
                 // alert('success!');
             }
         }
@@ -57,7 +57,7 @@ function OrderCtrl($scope) {
                 if (data.Parkorder) {
                     $scope.rowCollection = data.Parkorder;
                     console.log($scope.rowCollection);
-                    if($scope.rowCollection){
+                    /*if($scope.rowCollection){
                         $scope.rowCollection.forEach(function(row){
                             // $scope.userid = list
                             row.start = parseDate(new Date(Date.parse(row.start)));
@@ -68,14 +68,14 @@ function OrderCtrl($scope) {
                                 row.leave = parseDate(new Date(Date.parse(row.leave)));
                             }
                         })
-                    }
+                    }*/
                     alert('success!');
                 }
             }
         });
     };
 
-    function parseDate(d) {
+    /*function parseDate(d) {
             // var   year=d.getYear();
             var   month = d.getMonth()+1;
             var   date = d.getDate();
@@ -84,6 +84,6 @@ function OrderCtrl($scope) {
             var   second = d.getSeconds();
             return   "2017-"+ month+"-"+ date + "   "+ hour+ ":" + minute+ ":" + second;
 
-    }
+    }*/
 
 }
