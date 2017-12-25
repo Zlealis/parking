@@ -8,7 +8,7 @@
                 <button class="btn btn-sm btn-info" style="width:25%;margin-left: 0%" ng-click="search()">查询</button>
                 <button class="btn btn-sm btn-info" style="width:25%;margin-left: 40%;background-color: transparent;border-color: #d9edf7;color: black;" ng-click="changeView()">{{listMessage}}</button>
             </rd-widget-header>
-            <!--<rd-widget-body classes="medium no-padding">-->
+
                 <div class="table-responsive" ng-show="listshow">
                     <table st-table="rowCollection" class="table">
                             <thead>
@@ -54,50 +54,22 @@
                             </tbody>
                         </table>
                 </div>
-            <!--</rd-widget-body>-->
+
         </rd-widget>
     </div>
 
     <div class="col-lg-12">
         <rd-widget>
             <rd-widget-header icon="fa-plus" title="停车场新增">
-                <a ui-sref="addlot" style="margin-left: 0%">添加</a>
-                <!--<button class="btn btn-sm btn-info" ng-click="">添加</button>-->
+                <a ui-sref="addlot" style="margin-left: 40%">添加</a>
             </rd-widget-header>
-            <!--<rd-widget-body classes="medium no-padding">-->
-                <!--<div >-->
-                    <!--这段代码可以显示地图，但是太小了-->
-                    <!--<button ng-click="newMyMap()">显示地图</button>-->
 
-                    <!--<div ng-show="showMap">-->
-                        <!--<div id="allmap" style="height: 200px;width: 400px"></div>-->
-                    <!--</div>-->
-                <!--</div>-->
-            <!--</rd-widget-body>-->
         </rd-widget>
     </div>
 
     <div class="col-lg-12">
         <rd-widget>
-            <rd-widget-header icon="fa-tasks" title="停车场修改">
-                <a ui-sref="editLot" style="margin-left: 0%">修改</a>
-                <!--<button class="btn btn-sm btn-info" ng-click="">修改</button>-->
-            </rd-widget-header>
-            <!--<rd-widget-body classes="medium no-padding">-->
-                <!--<div class="message">-->
-                    <!--这部分提供对停车场的修改、删除功能-->
-                    <!--&lt;!&ndash;<span class="error">尚未实现!</span>&ndash;&gt;-->
-                <!--</div>-->
-                <!--&lt;!&ndash;<div>&ndash;&gt;-->
-                    <!--&lt;!&ndash;<p>输入中心获取图片</p>&ndash;&gt;-->
-                    <!--&lt;!&ndash;<br>&ndash;&gt;-->
-                    <!--&lt;!&ndash;<input ng-model="longitude" placeholder="请输入经度121.443"/>&ndash;&gt;-->
-                    <!--&lt;!&ndash;<input ng-model="latitude" placeholder="请输入纬度31.032"/>&ndash;&gt;-->
-                    <!--&lt;!&ndash;<br>&ndash;&gt;-->
-                    <!--&lt;!&ndash;<img ng-src="{{ {'uu':longitude, 'ii':latitude} |myImageUrl}}"  style="width:20px;height:200px">&ndash;&gt;-->
-                    <!--&lt;!&ndash;<br>&ndash;&gt;-->
-                <!--&lt;!&ndash;</div>&ndash;&gt;-->
-            <!--</rd-widget-body>-->
+
         </rd-widget>
     </div>
 
