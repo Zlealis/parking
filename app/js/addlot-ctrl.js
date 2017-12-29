@@ -13,13 +13,12 @@ function AddLotCtrl($scope, $state) {
         console.log('创建停车场：经度'+$scope.longi +',纬度'+$scope.lat);
 
 
+
         var s="";
         var temp;
         var count=0;
         var pbase;
-
         s=$scope.newlot.pbase.split('+');
-
         for (var i=0; i<s.length;i++){
             temp=parseInt(s[i],2);
             countTotal(temp);
@@ -29,7 +28,6 @@ function AddLotCtrl($scope, $state) {
                 pbase=pbase+"+"+temp.toString(16);
             }
         }
-        console.log("3");
         function countTotal(n) {
             n=(n&0X55555555)+((n>>1)&0x55555555);
             n=(n&0X33333333)+((n>>2)&0x33333333);
@@ -38,8 +36,8 @@ function AddLotCtrl($scope, $state) {
             n=(n&0X0000ffff)+((n>>16)&0x0000ffff);
             count+=n;
         }
-
         $scope.newlot.total=count;
+
 
         var data= {
             //"longitude":$scope.longi,
@@ -67,7 +65,7 @@ function AddLotCtrl($scope, $state) {
         else {
             $.ajax({
                 // url: baseUrl +'/User/',
-                url: 'http://120.77.42.242:8080/Entity/Ufaf878cb8ec3/ParkingLot/Park',
+                url: 'http://120.77.42.242:8080/Entity/Ufaf878cb8ec3/ParkingLot/Park1',
                 method: 'POST',
                 // data: data,
                 data: JSON.stringify(data),
@@ -81,7 +79,7 @@ function AddLotCtrl($scope, $state) {
                     }
                 }
             }).done(function (data) {
-                var url = "http://120.77.42.242:8080/Entity/Ufaf878cb8ec3/ParkingLot/Park/" + data.id;
+                var url = "http://120.77.42.242:8080/Entity/Ufaf878cb8ec3/ParkingLot/Park1/" + data.id;
                 console.log(url);
                 var files = $(":file")[0].files;
                 var formData = new FormData();

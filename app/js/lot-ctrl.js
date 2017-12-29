@@ -10,16 +10,15 @@ function LotCtrl($scope,$state) {
     $scope.listMessage = '收起';
     $.ajax({
         // url: baseUrl +'/User/',
-        url: 'http://120.77.42.242:8080/Entity/Ufaf878cb8ec3/ParkingLot/Park',
+        url: 'http://120.77.42.242:8080/Entity/Ufaf878cb8ec3/ParkingLot/Park1',
         method: 'GET',
         async: false,
         success: function (data) {
-            if (data.Park) {
-                $scope.rowCollection = data.Park;
+            if (data.Park1) {
+                $scope.rowCollection = data.Park1;
                 $scope.lotnum = $scope.rowCollection.length;
                 console.log($scope.rowCollection);
-
-        }
+            }
         }
     });
 
@@ -36,8 +35,8 @@ function LotCtrl($scope,$state) {
 
     $scope.editLot =function(row){
         console.log(row.id);
-        $state.go('editLot',{id:row.id});
-    }
+        $state.go('editLot',{id:row.id},{reload:true});
+    };
 
 
     // $scope.lotCode = function (row) {
@@ -62,13 +61,13 @@ function LotCtrl($scope,$state) {
         // alert(baseUrl);
         $.ajax({
             // url: baseUrl +'/User/',
-            url: 'http://120.77.42.242:8080/Entity/Ufaf878cb8ec3/ParkingLot/Park',
+            url: 'http://120.77.42.242:8080/Entity/Ufaf878cb8ec3/ParkingLot/Park1',
             method: 'GET',
             async: false,
             success: function (data) {
-                if (data.Park) {
+                if (data.Park1) {
 
-                    $scope.rowCollection = data.Park;
+                    $scope.rowCollection = data.Park1;
                     console.log($scope.rowCollection);
                     alert('success!');
                 }
@@ -84,7 +83,7 @@ function LotCtrl($scope,$state) {
             console.log('delete');
 
             $.ajax({
-                url: 'http://120.77.42.242:8080/Entity/Ufaf878cb8ec3/ParkingLot/Park/' + row.id,
+                url: 'http://120.77.42.242:8080/Entity/Ufaf878cb8ec3/ParkingLot/Park1/' + row.id,
                 method: 'DELETE',
                 async: false,
                 success: function (data) {

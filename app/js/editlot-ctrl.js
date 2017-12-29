@@ -5,32 +5,68 @@ angular.module('RDash')
 function EditLotCtrl($scope,$state,$stateParams) {
     $scope.editLot={};
     $scope.myid = $stateParams.id;
+    //console.log($scope.myid);
 
-    console.log($scope.myid);
-
+    var temp;
+    var s;
+    var length=0;
     if($scope.myid !== 0){
         console.log("1");
         $.ajax({
             // url: baseUrl +'/User/',
-            url: 'http://120.77.42.242:8080/Entity/Ufaf878cb8ec3/ParkingLot/Park/' + $scope.myid,
+            url: 'http://120.77.42.242:8080/Entity/Ufaf878cb8ec3/ParkingLot/Park1/' + $scope.myid,
             method: 'GET',
             async: false,
             success: function (data) {
                 console.log(data);
                 $scope.editLot = data;
+                temp =data.pbase;
                 console.log('success!');
             }
         });
-        $scope.imgsrc='http://120.77.42.242:8080/file/Ufaf878cb8ec3/ParkingLot/Park/'+ $scope.myid;
+        $scope.imgsrc='http://120.77.42.242:8080/file/Ufaf878cb8ec3/ParkingLot/Park1/'+ $scope.myid;
         if($scope.editLot.total!==$scope.editLot.left){
             alert("还有车在，不能修改停车场信息");
-            state.go('lot');
+            $state.go('lot');
         }
     }
+
+    console.log(temp);
+    s=temp.split('\+');
+
+    for (var i=0;i<s.length;i++){
+        s[i]=parseInt(s[i],10).toString(2);
+        console.log(s[i]);
+    }
+    console.log(s);
+
+    for( i=0;i<s.length;i++){
+        // if(parseInt(s[i],2).length>length) {
+        if(s[i].length>length) {
+            length =s[i].length;
+        }
+
+    }
+
+
+    /**
+     * @return {string}
+     */
+    function PrefixInteger(num, length) {
+        return (Array(length).join('0')+ num).slice(-length);
+    }
+
+    temp =PrefixInteger(s[0],length);
+
+    for(i=1;i<s.length;i++){
+        s[i]=PrefixInteger(s[i],length);
+        temp=temp +"+" +s[i];
+    }
+    console.log(temp);
+    $scope.editLot.pbase=temp;
+
+
     console.log($scope.editLot);
-
-
-
 
 
     $scope.save = function() {
@@ -39,9 +75,9 @@ function EditLotCtrl($scope,$state,$stateParams) {
             alert('关键信息不能为空！');
         }
         else {
-            var s=$scope.editLot.pbase.split('+');
+            s=$scope.editLot.pbase.split('+');
             var pbase;
-            var temp;
+            //var temp;
             var count=0;
             for (var i = 0; i < s.length; i++) {
                 temp = parseInt(s[i], 2);
@@ -79,7 +115,7 @@ function EditLotCtrl($scope,$state,$stateParams) {
             };
 
             $.ajax({
-                url: 'http://120.77.42.242:8080/Entity/Ufaf878cb8ec3/ParkingLot/Park/' + $scope.myid,
+                url: 'http://120.77.42.242:8080/Entity/Ufaf878cb8ec3/ParkingLot/Park1/' + $scope.myid,
                 method: 'PUT',
                 data: JSON.stringify(data),
                 contentType: 'application/json',
@@ -88,14 +124,15 @@ function EditLotCtrl($scope,$state,$stateParams) {
                     $scope.editLot = data;
                     console.log(data);
                     alert('update success!');
-                    $state.go('lot');
+                    // $state.go('lot');
+                    $state.go('editLot',{id:$stateParams.id},{reload:true});
                 }
             })
         }
-    }
+    };
 
     $scope.updateImg = function () {
-        var url = "http://120.77.42.242:8080/Entity/Ufaf878cb8ec3/ParkingLot/Park/" + $scope.myid;
+        var url = "http://120.77.42.242:8080/Entity/Ufaf878cb8ec3/ParkingLot/Park1/" + $scope.myid;
         //console.log(url);
         var files = $(":file")[0].files;
         var formData = new FormData();
@@ -108,9 +145,13 @@ function EditLotCtrl($scope,$state,$stateParams) {
             contentType: false,
             processData: false,
             success: function (data) {
-                alert('success!');
+                alert('success update!');
                 console.log(data);
-                $state.go('editLot',{id:$stateParams.id});
+                // $state.go('lot');
+                // $state.go('editLot',{id:$stateParams.id},{reload:true});
+                $state.go('editLot',{id: $scope.myid},{reload:true});
+                // console.log("跳转后");
+               // $state.go('space',{id:data.id},{reload:true});
             }
         })
 

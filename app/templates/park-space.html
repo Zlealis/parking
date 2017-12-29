@@ -1,5 +1,5 @@
 <div class="col-xs-12">
-    <uib-alert  type="success" >停车位管理：包括停车位的增删改查</uib-alert>
+    <uib-alert  type="success" >停车位管理：包括停车位的查和状态修改</uib-alert>
 </div>
 
     <div class="col-lg-12">
@@ -13,22 +13,27 @@
                 <table st-table="rowCollection" class="table">
                         <thead>
                         <tr>
-                            <th >
-                                <input st-search="isfull" placeholder="是否停车" class="input-sm form-control" type="search"/>
-                            </th>
+                            <th style="width: 20%" >停车场总车位</th>
+                            <th style="width: 20%" >{{total}}</th>
+                            <th style="width: 20%" >停车场剩余车位</th>
+                            <th style="width: 20%" >{{left}}</th>
 
-                            <th >
-                                <input st-search="spaceid" placeholder="停车位ID" class="input-sm form-control" type="search"/>
-                            </th>
-                            <th >
-                                <input st-search="xpos" placeholder="行号" class="input-sm form-control" type="search"/>
-                            </th>
-                            <th >
-                                <input st-search="ypos" placeholder="列号" class="input-sm form-control" type="search"/>
-                            </th>
-                            <th colspan="3">
-                                <input st-search placeholder="全局搜索" class="input-sm form-control" type="search"/>
-                            </th>
+                            <!--<th >-->
+                                <!--<input st-search="isfull" placeholder="是否停车" class="input-sm form-control" type="search"/>-->
+                            <!--</th>-->
+
+                            <!--<th >-->
+                                <!--<input st-search="spaceid" placeholder="停车位ID" class="input-sm form-control" type="search"/>-->
+                            <!--</th>-->
+                            <!--<th >-->
+                                <!--<input st-search="xpos" placeholder="行号" class="input-sm form-control" type="search"/>-->
+                            <!--</th>-->
+                            <!--<th >-->
+                                <!--<input st-search="ypos" placeholder="列号" class="input-sm form-control" type="search"/>-->
+                            <!--</th>-->
+                            <!--<th colspan="3">-->
+                                <!--<input st-search placeholder="全局搜索" class="input-sm form-control" type="search"/>-->
+                            <!--</th>-->
                         </tr>
 
                         <tr>
@@ -37,8 +42,9 @@
                             <th style="width: 10%" st-sort = "xpos">行号</th>
                             <th style="width: 12%" st-sort =  "ypos">列号</th>
                             <th style="width: 10%" st-sort = "isfull">是否停车</th>
-                            <th>查看所停车辆</th>
-                            <th>生成二维码</th>
+                            <th style="width: 10%" st-sort = "change">修改状态</th>
+                            <!--<th>查看所停车辆</th>-->
+                            <!--<th>生成二维码</th>-->
 
                         </tr>
                         </thead>
@@ -46,7 +52,7 @@
                         <tr ng-repeat="row in rowCollection">
                             <!--<td>{{row.isfull}}</td>-->
                             <td >{{parkid}}</td>
-                            <td >{{id}}</td>
+                            <td >{{row.id}}</td>
                             <td >{{row.xpos}}</td>
                             <td >{{row.ypos}}</td>
                             <td >{{{true: "有车", false:"空闲"}[row.isfull == 1]}}</td>
@@ -55,7 +61,7 @@
                             <!--<td><img src="../img/qrcode.jpg" ng-click="spaceqrCode(row)" style="height:5%;margin-left: 30%"></td>-->
                             <!--<td><button ng-click="seeCar(row)"></button></td>-->
                             <!--<td><button ng-click="spaceqrCode(row)"></button></td>-->
-                            <td><button ng-click="changeState(row.xpos,row.y)"></button></td>
+                            <td><button ng-click="changeState(row.xpos,row.ypos)"></button></td>
                         </tr>
                         </tbody>
                     </table>

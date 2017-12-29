@@ -1,5 +1,6 @@
 angular.module('RDash', ['ui.router','ui.bootstrap','smart-table'])
-    .constant('baseUrl','http://120.77.42.242:8080/Entity/Ufaf878cb8ec3/ParkingLot/');
+    .constant('baseUrl','http://120.77.42.242:8080/Entity/Ufaf878cb8ec3/ParkingLot/Park/')
+    .constant('baseUrl1','http://120.77.42.242:8080/Entity/Ufaf878cb8ec3/ParkingLot/Park1/');
 
 //     .filter("unique", unique());
 //
